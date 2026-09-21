@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Семантический HTML без лишних div — CampusFlow</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="logo" href="index.html">CampusFlow</a>
+
+      <nav class="main-nav" aria-label="Основная навигация">
+        <ul>
+          <li><a href="index.html">Каталог</a></li>
+          <li><a href="#">Мои события</a></li>
+          <li><a href="#">Профиль</a></li>
+        </ul>
+      </nav>
+
+      <form class="search" role="search">
+        <label for="site-search" class="visually-hidden">Поиск</label>
+        <input id="site-search" type="search" placeholder="Поиск" />
+      </form>
+
+      <button type="button" class="avatar" aria-label="Профиль пользователя">AV</button>
+    </header>
+
+    <main class="event-page">
+      <a class="back-link" href="index.html">← Назад к каталогу</a>
+
+      <article class="event">
+        <header class="event__header">
+          <p class="event__category">Frontend</p>
+          <h1 class="event__title">Семантический HTML без лишних div</h1>
+          <p class="event__lead">
+            Разберём структуру страницы, landmark-области и доступные формы.
+          </p>
+
+          <dl class="event__meta">
+            <div>
+              <dt>Дата</dt>
+              <dd><time datetime="2026-09-18T16:00">18 сентября · 16:00</time></dd>
+            </div>
+            <div>
+              <dt>Место</dt>
+              <dd>Аудитория 304 · 90 минут</dd>
+            </div>
+          </dl>
+        </header>
+
+        <section class="event__tabs" aria-label="Разделы мероприятия">
+          <div role="tablist" aria-label="Информация о мероприятии">
+            <button role="tab" aria-selected="true" aria-controls="tab-description" id="tab-1">
+              Описание
+            </button>
+            <button role="tab" aria-selected="false" aria-controls="tab-program" id="tab-2">
+              Программа
+            </button>
+            <button role="tab" aria-selected="false" aria-controls="tab-speakers" id="tab-3">
+              Спикеры
+            </button>
+          </div>
+
+          <div role="tabpanel" id="tab-description" aria-labelledby="tab-1">
+            <h2>О мероприятии</h2>
+            <p>
+              На занятии участники научатся выбирать семантические элементы страницы,
+              определять границы компонентов и проверять структуру документа до стилизации.
+            </p>
+
+            <h3>Что будет на встрече</h3>
+            <ul>
+              <li>landmark-элементы: header, nav, main, aside, footer;</li>
+              <li>article и section: когда использовать;</li>
+              <li>формы, label, состояния ошибок;</li>
+              <li>небольшой разбор реального макета.</li>
+            </ul>
+          </div>
+
+          <div role="tabpanel" id="tab-program" aria-labelledby="tab-2" hidden>
+            <h2>Программа</h2>
+            <p>Будет добавлена позже.</p>
+          </div>
+
+          <div role="tabpanel" id="tab-speakers" aria-labelledby="tab-3" hidden>
+            <h2>Спикеры</h2>
+            <p>Будет добавлено позже.</p>
+          </div>
+        </section>
+      </article>
+
+      <aside class="event__aside" aria-label="Запись на мероприятие">
+        <h2>Запись на мероприятие</h2>
+
+        <p class="seats">
+          Осталось <strong>18 из 40</strong> мест
+        </p>
+
+        <progress value="22" max="40" aria-label="Занято мест"></progress>
+
+        <button type="button" class="btn btn--primary">Записаться</button>
+        <button type="button" class="btn btn--secondary" aria-pressed="false">
+          В избранное
+        </button>
+
+        <footer class="organizer">
+          <p class="organizer__label">Организатор</p>
+          <p class="organizer__name">Кафедра веб-технологий</p>
+        </footer>
+      </aside>
+    </main>
+  </body>
+</html>
